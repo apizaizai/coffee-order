@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Coffee</title>
+</head>
+<body>
+  <h1>Choose Your Drink</h1>
+  <button onclick="sendOrder('Americano')">Americano</button>
+  <button onclick="sendOrder('Latte')">Latte</button>
+
+  <script>
+    function sendOrder(drink) {
+      fetch('https://your-project.firebaseio.com/orders.json', {
+        method: 'POST',
+        body: JSON.stringify({ drink: drink, time: Date.now() })
+      }).then(() => alert('Your ' + drink + ' is being prepared!'));
+    }
+  </script>
+</body>
+</html>
