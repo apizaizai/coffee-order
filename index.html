@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BariastaGo - Order Coffee</title>
+  <title>BaristaGo - Order Coffee</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f0f0f0;
+      background: #f9f9f9;
       text-align: center;
       margin: 0;
       padding: 0;
     }
 
     header {
-      background-color: #6f4e37;
+      background-color: #4b2e2e;
       color: white;
       padding: 20px;
     }
@@ -34,17 +34,28 @@
       padding: 20px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       width: 250px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .drink img {
+    .drink img.americano {
       width: 100%;
       border-radius: 8px;
     }
 
+    .drink img.latte {
+      width: 120%;
+      border-radius: 8px;
+    }
+
+    .drink h2 {
+      margin: 15px 0 10px 0;
+    }
+
     .drink button {
-      margin-top: 10px;
       padding: 10px 20px;
-      background-color: #6f4e37;
+      background-color: #4b2e2e;
       color: white;
       border: none;
       border-radius: 5px;
@@ -53,30 +64,30 @@
     }
 
     footer {
-      margin: 40px 0;
+      margin: 50px 0 30px 0;
     }
 
     .logo {
-      width: 300px; /* Increased size (was 100px) */
+      width: 600px; /* 2x previous size */
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>BariastaGo</h1>
+    <h1>BaristaGo</h1>
     <p>Welcome! Please select your coffee below.</p>
   </header>
 
   <div class="drink-section">
     <div class="drink">
-      <img src="https://raw.githubusercontent.com/apizaizai/coffee-order/refs/heads/main/Americano.jpg" alt="Americano">
+      <img src="https://raw.githubusercontent.com/apizaizai/coffee-order/refs/heads/main/Americano.jpg" alt="Americano" class="americano">
       <h2>Americano</h2>
       <button onclick="sendOrder('Americano')">Order Americano</button>
     </div>
 
     <div class="drink">
-      <img src="https://raw.githubusercontent.com/apizaizai/coffee-order/refs/heads/main/latte.jpg" alt="Latte">
+      <img src="https://raw.githubusercontent.com/apizaizai/coffee-order/refs/heads/main/latte.jpg" alt="Latte" class="latte">
       <h2>Latte</h2>
       <button onclick="sendOrder('Latte')">Order Latte</button>
     </div>
@@ -84,7 +95,7 @@
 
   <footer>
     <img class="logo" src="https://raw.githubusercontent.com/apizaizai/coffee-order/refs/heads/main/Prima%20Logo.png" alt="Prima Logo">
-    <p>Powered by Prima Coffee Solutions</p>
+    <p>Powered by Prima Automation Sdn Bhd</p>
   </footer>
 
   <script>
