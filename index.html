@@ -2,11 +2,59 @@
 <html>
 <head>
   <title>Order Coffee</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f2f2f2;
+      padding: 30px;
+    }
+    h1 {
+      color: #333;
+    }
+    .drink-container {
+      display: inline-block;
+      margin: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 180px;
+    }
+    .drink-container img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    button {
+      background-color: #6c63ff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #5752d1;
+    }
+  </style>
 </head>
 <body>
   <h1>Choose Your Drink</h1>
-  <button onclick="sendOrder('Americano')">Americano</button>
-  <button onclick="sendOrder('Latte')">Latte</button>
+
+  <div class="drink-container">
+    <img src="https://raw.githubusercontent.com/apizaizai/coffee-order/refs/heads/main/Americano.jpg" alt="Americano">
+    <button onclick="sendOrder('Americano')">Americano</button>
+  </div>
+
+  <div class="drink-container">
+    <img src="https://raw.githubusercontent.com/apizaizai/coffee-order/refs/heads/main/latte.jpg" alt="Latte">
+    <button onclick="sendOrder('Latte')">Latte</button>
+  </div>
 
   <script>
     function sendOrder(drink) {
