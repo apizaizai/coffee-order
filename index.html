@@ -12,7 +12,7 @@
     }
 
     header {
-      background-color: #4b2e2e;
+      background-color: #6f4e37; /* coffee tone */
       color: white;
       padding: 20px;
     }
@@ -37,6 +37,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: space-between;
     }
 
     .drink img.americano {
@@ -51,11 +52,12 @@
 
     .drink h2 {
       margin: 15px 0 10px 0;
+      height: 24px; /* force same height */
     }
 
     .drink button {
       padding: 10px 20px;
-      background-color: #4b2e2e;
+      background-color: #6f4e37;
       color: white;
       border: none;
       border-radius: 5px;
@@ -68,7 +70,13 @@
     }
 
     .logo {
-      width: 600px; /* 2x previous size */
+      width: 600px;
+    }
+
+    .footer-note {
+      color: #555;
+      font-style: italic;
+      margin-top: 10px;
     }
   </style>
 </head>
@@ -95,7 +103,7 @@
 
   <footer>
     <img class="logo" src="https://raw.githubusercontent.com/apizaizai/coffee-order/refs/heads/main/Prima%20Logo.png" alt="Prima Logo">
-    <p>Powered by Prima Automation Sdn Bhd</p>
+    <p class="footer-note">Powered by Prima Automation Sdn Bhd</p>
   </footer>
 
   <script>
