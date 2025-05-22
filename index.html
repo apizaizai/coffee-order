@@ -163,7 +163,10 @@
       fetch('https://coffeeorder-44c7d-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ Order: drink, time: Date.now() })
+        body: JSON.stringify({
+          Order: drink,
+          time: Date.now()  // ✅ Timestamp included here
+        })
       })
       .then(response => {
         if (!response.ok) throw new Error('Network error');
