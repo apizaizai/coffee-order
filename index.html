@@ -23,57 +23,60 @@
       text-align: center;
       background-color: #6f4e37;
       color: white;
-      padding: 20px;
+      padding: 10px 10px 8px;
     }
 
     .header h1 {
       margin: 0;
-      font-size: 2.2em;
+      font-size: 1.7em;
     }
 
     .header p {
       margin-top: 5px;
-      font-size: 1.1em;
+      font-size: 0.95em;
     }
 
     .container {
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      gap: 40px;
-      padding: 30px 20px;
+      gap: 30px;
+      padding: 20px;
       flex-wrap: nowrap;
     }
 
     .drink-card {
-      width: 300px;
-      min-height: 420px;
+      width: 220px;
+      min-height: 300px;
       background-color: white;
       border: 2px solid #ccc;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       text-align: center;
-      padding: 15px;
+      padding: 10px;
       box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .drink-card img {
       width: 100%;
-      height: 200px;
-      object-fit: cover;
+      height: 150px;
+      object-fit: contain;
       border-radius: 10px;
     }
 
     .drink-card h2 {
-      margin: 15px 0 10px;
-      font-size: 1.5em;
+      margin: 10px 0 8px;
+      font-size: 1.2em;
     }
 
     .drink-card button {
       background-color: #6f4e37;
       color: white;
-      padding: 10px 20px;
-      font-size: 1em;
+      padding: 8px 16px;
+      font-size: 0.95em;
       border: none;
       border-radius: 5px;
       cursor: pointer;
@@ -85,12 +88,12 @@
 
     .footer {
       text-align: center;
-      padding: 20px 10px 30px;
+      padding: 20px 10px 40px;
     }
 
     .footer img {
-      width: 200px; /* 2x size */
-      max-width: 90%;
+      width: 400px;
+      max-width: 95%;
       height: auto;
       display: block;
       margin: 0 auto 10px;
@@ -101,6 +104,7 @@
       color: #444;
     }
 
+    /* PORTRAIT MODE ADJUSTMENT */
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
@@ -110,10 +114,21 @@
       .drink-card {
         width: 90%;
         margin-bottom: 20px;
+        height: auto;
+        justify-content: flex-start;
+      }
+
+      .drink-card img {
+        height: 180px;
+        margin-bottom: 10px;
+      }
+
+      .drink-card h2 {
+        margin-top: auto;
       }
 
       .footer img {
-        width: 140px;
+        width: 375px; /* Enlarged by ~1.5x */
       }
     }
   </style>
