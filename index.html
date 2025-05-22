@@ -1,109 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>BaristaGo - Order Coffee</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BaristaGo</title>
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      background-color: #f3f3f3;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     header {
-      background-color: #5e3023;
-      color: white;
-      padding: 20px 0;
       text-align: center;
+      margin-top: 20px;
     }
 
     header h1 {
-      margin: 0;
-      font-size: 2.2em;
+      font-size: 2.5em;
+      margin-bottom: 0;
+      color: #4a2f18;
     }
 
     header p {
-      margin: 5px 0 0;
+      font-size: 1.2em;
+      color: #555;
+      margin-top: 5px;
     }
 
-    .drink-section {
+    .drink-container {
       display: flex;
-      flex-direction: row;
       justify-content: center;
       gap: 50px;
-      margin: 40px 20px;
-      flex-wrap: wrap;
+      margin: 40px 0;
     }
 
-    .card {
-      background-color: white;
+    .drink-card {
+      background: white;
+      border: 2px solid #ccc;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       padding: 20px;
-      width: 200px;
+      width: 250px;
       text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
-    .card img {
-      max-width: 100%;
-      height: auto;
+    .drink-card img {
+      width: 100%;
+      border-radius: 8px;
     }
 
-    .card h2 {
-      margin: 15px 0 10px;
-      font-size: 1.3em;
+    .drink-card h2 {
+      margin-top: 15px;
+      margin-bottom: 10px;
+      font-size: 1.5em;
     }
 
-    .order-button {
-      background-color: #5e3023;
+    .drink-card button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #8B4513;
       color: white;
       border: none;
-      padding: 10px 15px;
       border-radius: 5px;
       cursor: pointer;
-      font-size: 0.95em;
     }
 
-    .order-button:hover {
-      background-color: #4a261b;
+    .drink-card button:hover {
+      background-color: #a0522d;
     }
 
     .bottom-logo {
-      display: flex;
-      justify-content: center;
-      margin-top: 60px;
-      margin-bottom: 10px;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      text-align: center;
     }
 
     .bottom-logo img {
-      max-width: 400px;
-      width: 80%;
-      transform: scale(2);
+      width: 220px;
     }
 
     .powered-by {
-      text-align: center;
-      color: #444;
       font-style: italic;
-      font-size: 0.9em;
-      margin-bottom: 30px;
+      color: #555;
+      margin-bottom: 20px;
+      text-align: center;
     }
 
-    /* Latte image 1.2x */
-    .latte-img {
-      transform: scale(1.2);
-    }
-
-    /* Responsive layout */
     @media (max-width: 768px) {
-      .drink-section {
+      .drink-container {
         flex-direction: column;
-        align-items: center;
+        gap: 20px;
+      }
+
+      .drink-card {
+        width: 80%;
+        margin: 0 auto;
       }
 
       .bottom-logo img {
-        transform: scale(1.8);
+        width: 150px;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .bottom-logo {
+        margin-top: 80px;
       }
     }
   </style>
@@ -114,26 +120,25 @@
     <p>Welcome! Please select your coffee below.</p>
   </header>
 
-  <div class="drink-section">
-    <div class="card">
-      <img src="https://raw.githubusercontent.com/apizaizai/coffee-order/refs/heads/main/Americano.jpg" alt="Americano">
+  <div class="drink-container">
+    <div class="drink-card">
+      <img src="https://raw.githubusercontent.com/apizaizai/coffee-order/refs/heads/main/Americano.jpg" alt="Americano" />
       <h2>Americano</h2>
-      <button class="order-button" onclick="sendOrder('Americano')">Order Americano</button>
+      <button onclick="sendOrder('Americano')">Order Americano</button>
     </div>
-    <div class="card">
-      <img class="latte-img" src="https://raw.githubusercontent.com/apizaizai/coffee-order/refs/heads/main/latte.jpg" alt="Latte">
+
+    <div class="drink-card">
+      <img src="https://raw.githubusercontent.com/apizaizai/coffee-order/refs/heads/main/latte.jpg" alt="Latte" />
       <h2>Latte</h2>
-      <button class="order-button" onclick="sendOrder('Latte')">Order Latte</button>
+      <button onclick="sendOrder('Latte')">Order Latte</button>
     </div>
   </div>
 
   <div class="bottom-logo">
-    <img src="https://raw.githubusercontent.com/apizaizai/coffee-order/refs/heads/main/Prima%20Logo.png" alt="Prima Logo">
+    <img src="https://raw.githubusercontent.com/apizaizai/coffee-order/refs/heads/main/Prima%20Logo.png" alt="Prima Logo" />
   </div>
 
-  <div class="powered-by">
-    Powered by Prima Automation Sdn Bhd
-  </div>
+  <div class="powered-by">Powered by Prima Automation Sdn Bhd</div>
 
   <script>
     function sendOrder(drink) {
