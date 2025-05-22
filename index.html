@@ -2,161 +2,152 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BaristaGo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BaristaGo - Coffee Order</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f3f3f3;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f2efe9;
       margin: 0;
       padding: 0;
+      animation: fadeIn 1.2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .container {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    header {
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    header h1 {
-      font-size: 2.5em;
-      margin-bottom: 0;
-      color: #4a2f18;
-    }
-
-    header p {
-      font-size: 1.2em;
-      color: #555;
-      margin-top: 5px;
-    }
-
-    .drink-container {
-      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 60px;
-      margin: 40px 0;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .header {
+      width: 100%;
+      padding: 30px 10px 10px;
+      background-color: #6f4e37;
+      color: white;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    .header p {
+      margin: 10px 0 0;
+      font-size: 1.2em;
     }
 
     .drink-card {
-      background: white;
+      flex: 1 1 300px;
+      max-width: 400px;
+      margin: 20px;
       border: 2px solid #ccc;
       border-radius: 10px;
-      padding: 15px;
-      width: 220px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      background-color: white;
+      padding: 10px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
     }
 
     .drink-card img {
-      width: 100%;
-      border-radius: 8px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
     }
 
     .drink-card h2 {
-      margin: 15px 0 10px;
-      font-size: 1.4em;
+      margin: 10px 0 10px;
+      font-size: 1.5em;
     }
 
     .drink-card button {
+      background-color: #6f4e37;
+      color: white;
       padding: 10px 20px;
       font-size: 1em;
-      background-color: #8B4513;
-      color: white;
       border: none;
       border-radius: 5px;
       cursor: pointer;
     }
 
     .drink-card button:hover {
-      background-color: #a0522d;
+      background-color: #593a28;
     }
 
-    .bottom-logo {
-      margin-top: 60px;
-      margin-bottom: 10px;
+    .footer {
+      width: 100%;
       text-align: center;
+      padding: 20px;
+      margin-top: 20px;
     }
 
-    .bottom-logo img {
-      width: 280px;
+    .footer img {
+      max-width: 150px;
+      height: auto;
+      display: block;
+      margin: 0 auto 10px;
     }
 
-    .powered-by {
-      font-style: italic;
+    .footer p {
       color: #555;
-      margin-bottom: 30px;
-      text-align: center;
+      font-style: italic;
     }
 
-    /* Portrait adjustments */
     @media (max-width: 768px) {
-      .drink-container {
+      .container {
         flex-direction: column;
-        gap: 20px;
       }
-
-      .drink-card {
-        width: 80%;
-        margin: 0 auto;
-      }
-
-      .bottom-logo img {
-        width: 160px;
-      }
-    }
-
-    /* Landscape positioning fix */
-    @media (min-width: 769px) {
-      .bottom-logo {
-        margin-top: 40px;
-        margin-bottom: 10px;
+      .footer img {
+        max-width: 120px;
       }
     }
   </style>
 </head>
 <body>
-  <header>
+  <div class="header">
     <h1>BaristaGo</h1>
     <p>Welcome! Please select your coffee below.</p>
-  </header>
+  </div>
 
-  <div class="drink-container">
+  <div class="container">
     <div class="drink-card">
-      <img src="https://raw.githubusercontent.com/apizaizai/coffee-order/refs/heads/main/Americano.jpg" alt="Americano" />
+      <img src="https://raw.githubusercontent.com/apizaizai/coffee-order/refs/heads/main/Americano.jpg" alt="Americano">
       <h2>Americano</h2>
       <button onclick="sendOrder('Americano')">Order Americano</button>
     </div>
 
     <div class="drink-card">
-      <img src="https://raw.githubusercontent.com/apizaizai/coffee-order/refs/heads/main/latte.jpg" alt="Latte" />
+      <img src="https://raw.githubusercontent.com/apizaizai/coffee-order/refs/heads/main/latte.jpg" alt="Latte">
       <h2>Latte</h2>
       <button onclick="sendOrder('Latte')">Order Latte</button>
     </div>
   </div>
 
-  <div class="bottom-logo">
-    <img src="https://raw.githubusercontent.com/apizaizai/coffee-order/refs/heads/main/Prima%20Logo.png" alt="Prima Logo" />
+  <div class="footer">
+    <img src="https://raw.githubusercontent.com/apizaizai/coffee-order/refs/heads/main/Prima%20Logo.png" alt="Prima Logo">
+    <p>Powered by Prima Automation Sdn Bhd</p>
   </div>
-
-  <div class="powered-by">Powered by Prima Automation Sdn Bhd</div>
 
   <script>
     function sendOrder(drink) {
       fetch('https://coffeeorder-44c7d-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ Order: drink, time: Date.now() })
       })
       .then(response => {
-        if (!response.ok) throw new Error('Network response was not ok');
+        if (!response.ok) throw new Error('Network error');
         return response.json();
       })
       .then(() => alert('Your ' + drink + ' is being prepared!'))
-      .catch(error => alert('Error sending order: ' + error));
+      .catch(error => alert('Error sending order: ' + error.message));
     }
   </script>
 </body>
